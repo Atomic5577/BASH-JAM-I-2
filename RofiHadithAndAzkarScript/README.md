@@ -33,4 +33,6 @@ Edit `database.txt` and add your Hadiths and Azkar. Use `*` to represent a new l
 ## Customization
 You can change the font, width, and colors by editing the `theme-str` section inside the script.
 
+## 👤 Author
 
+**[Shahd Sameh](https://github.com/SH-AHD)** *Software Engineer*
