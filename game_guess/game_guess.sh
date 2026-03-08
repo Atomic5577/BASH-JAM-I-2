@@ -22,6 +22,10 @@ echo -e "${blue}${bold}The laptop chose a value from 1 to 1000 .... try to guess
 
 while true; do
        read -p "Enter your guess : " guess
+       if [[ $guess == "exit" ]]; then
+	       echo "$value"
+	       break
+       fi
        if [[ ! $guess =~ ^[0-9]+$ ]]; then
 	     echo -e "${red}invlaid , please input only number${reset}"
 	     continue
@@ -32,23 +36,24 @@ while true; do
        fi
 
        ((count++))
-       if [[ "$guess" == "$value" ]]; then
+       if (( "$guess" == "$value" )); then
               echo -e "${green}"
               echo "   \\ \\_/ / |  | | |  | |  \\ \\  /\\  / /  | | |  \\| |"
               echo "    \\   /| |  | | |  | |   \\ \\/  \\/ /   | | | . \\ |"
               echo "     | | | |_| | || |    \\  /\\  /   _| || |\\  |"
               echo "     ||  \\_/ \\_/      \\/  \\/   |_|| \\_|"
-              echo -e "${blod} Winner Winner Mabrook $name! You got it in $count tries${reset}"
+              echo -e "${bold} Winner Winner Mabrook $name! You got it in $count tries${reset}"
               break
        else 
 	echo -e "${red}Wrong ,try again${reset}"
-	if [[ "$guess" > "$value" ]]; then
+	if (( "$guess" > "$value" )); then
 		echo "The value is smaller than your guess"
-	elif [[ "$guess" < "$value" ]]; then
+	elif (( "$guess" < "$value" )); then
 		 echo "The value is bigger than your guess"
 	fi
 	echo -e "${blue}${bold}----------------------------------${reset}"
        fi
+
 done
 
 
